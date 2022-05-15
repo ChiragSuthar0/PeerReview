@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+    <form th:action="@{/review/submit}" th:object="${reviewAns}" method="post" class="container form">
+
+        <div class="form-group">
+            <div>
+                <label> Question </label>
+                &emsp;
+                <label th:value="*{question}" th:text="*{question}"></label>
+            </div>
+            <br>
+            <label> Rating </label>
+            <select name="points" th:value="*{points}"> <!--style="background-color: purple; color: white; padding: 9px; border-radius: 9px; width: 80%" disabled-->
+                <option th:each="i : ${#numbers.sequence( 1, 10)}">
+                    <p th:text="${i}"></p>
+                </option>
+            </select>
+        </div>
+
+
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary" id="sell_share_button">
+                Submit
+            </button>
+        </div>
+    </form>
+</body>
+</html>

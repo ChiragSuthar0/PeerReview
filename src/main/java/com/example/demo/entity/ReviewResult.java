@@ -1,20 +1,21 @@
 package com.example.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-public class reviewResult {
+public class ReviewResult {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(unique = true)
     private String userName;
     private String question;
     private Integer points;
 
-    public reviewResult() {
+    public ReviewResult() {
     }
 
-    public reviewResult(String userName, String question, Integer points) {
+    public ReviewResult(String userName, String question, Integer points) {
         this.userName = userName;
         this.question = question;
         this.points = points;

@@ -1,12 +1,15 @@
 package com.example.demo.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class user {
+public class User {
     @Id
+    @Column(unique = true)
     private String rollNumber;
+    @Column(unique = true)
     private String userName;
     private String firstName;
     private String lastName;
@@ -16,13 +19,13 @@ public class user {
 
     private String role;
 
-    public user() {
+    public User() {
 
     }
 
-    public user(String rollNumber, String userName, String firstName, String lastName, String password, String email, String phoneNumber) {
+    public User(String rollNumber, String firstName, String lastName, String password, String email, String phoneNumber) {
         this.rollNumber = rollNumber;
-        this.userName = userName;
+        this.userName = rollNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
